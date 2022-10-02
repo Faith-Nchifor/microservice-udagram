@@ -26,7 +26,7 @@ jobs:
           password: $pw
           # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
-    
+    working_directory: /
     steps:
       # Checkout the code as the first step.
       - checkout
