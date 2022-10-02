@@ -48,21 +48,25 @@ jobs:
           command: |
             docker login -u faithwenyi -p $pw
             docker tag udagram-frontend faithwenyi/udagram-frontend 
+            docker push faithwenyi/udagram-frontend
       - run:
           name: Login to Docker and push changes to uaf
           command: |
             docker login -u faithwenyi -p $pw
             docker tag udagram-api-feed faithwenyi/udagram-api-feed 
+            docker push faithwenyi/udagram-api-feed
       - run:
           name: Login to Docker and push changes to uau
           command: |
             docker login -u faithwenyi -p $pw
-            docker tag udagram-api-feed faithwenyi/udagram-api-feed 
+            docker tag udagram-api-user faithwenyi/udagram-api-user
+            docker push faithwenyi/udagram-api-user
       - run:
           name: Login to Docker and push changes to urp
           command: |
             docker login -u faithwenyi -p $pw
-            docker tag reverseproxy faithwenyi/reverseproxy 
+            docker tag reverseproxy faithwenyi/reverseproxy
+            docker push faithwenyi/reverseproxy
       #- run:
           #name: Use build images to run containers
           #command: docker-compose up
