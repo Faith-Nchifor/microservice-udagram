@@ -26,7 +26,7 @@ jobs:
           password: $pw
           # Then run your tests!
     # CircleCI will report the results back to your VCS provider.
-    working_directory: /
+    
     steps:
       # Checkout the code as the first step.
       - checkout
@@ -39,16 +39,16 @@ jobs:
           #pkg-manager: npm
       - run:
           name: Build frontend
-          command: docker build -t udagram-frontend -f /udagram-frontend .
+          command: docker build -t udagram-frontend -f ./udagram-frontend .
       - run:
           name: Build feed
-          command: docker build -t udagram-api-feed -f udagram-api-feed .
+          command: docker build -t udagram-api-feed -f ./udagram-api-feed .
       - run:
           name: Build user
-          command: docker build -t udagram-api-user -f udagram-api-user .
+          command: docker build -t udagram-api-user -f ./udagram-api-user .
       - run:
           name: Build proxy
-          command: docker build -t udagram-reverseproxy -f udagram-reverseproxy .
+          command: docker build -t udagram-reverseproxy -f ./udagram-reverseproxy .
       - run:
           name: Login to Docker and push changes to uf
           command: |
