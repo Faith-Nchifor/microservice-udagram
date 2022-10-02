@@ -34,18 +34,18 @@ jobs:
           #version: 20.10.7
       # Next, the node orb's install-packages step will install the dependencies from a package.json.
       # The orb install-packages step will also automatically cache them for faster future runs.
-      - node/install-packages:
+      #- node/install-packages:
           # If you are using yarn, change the line below from "npm" to "yarn"
-          pkg-manager: npm
+          #pkg-manager: npm
       - run:
           name: Build app
           command: docker-compose -f docker-compose-build.yaml build --parallel
       - run:
           name: Login to Docker
           command: docker login -u faithwenyi -p $pw
-      - run:
-          name: Use build images to run containers
-          command: docker-compose up
+      #- run:
+          #name: Use build images to run containers
+          #command: docker-compose up
      
 
 workflows:
