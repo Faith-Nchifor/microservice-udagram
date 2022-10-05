@@ -6,8 +6,8 @@ services:
           - 8080:8080
       restart: always
       depends_on:
-        - udagram-api-user
-        - udagram-api-feed
+        - faithwenyi/udagram-api-user
+        - faithwenyi/udagram-api-feed
   backend-user:
     image: faithwenyi/udagram-api-user
     environment:
