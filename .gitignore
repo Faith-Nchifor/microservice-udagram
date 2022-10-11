@@ -33,6 +33,8 @@ $RECYCLE.BIN/
 postgres_dev/
 logfile
 set_env.sh
+aws-secret.yml
+env-secret.yaml
 
 .DS_Store
 Thumbs.db
