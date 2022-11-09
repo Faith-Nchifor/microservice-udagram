@@ -5,7 +5,7 @@ metadata:
   labels:
     app: udagram-api-feed
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: udagram-api-feed
@@ -14,13 +14,17 @@ spec:
       labels:
         app: udagram-api-feed
     spec:
+      restartPolicy: Always
       containers:
       - name: backend-feed-container
+        imagePullPolicy: Always
         image: faithwenyi/udagram-api-feed #<ECR_REPOSITORY>
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         envFrom:
           - configMapRef:
               name: u-env-configmap
           - secretRef: 
               name: u-env-secret
+          - secretRef:
+              name: u-aws-secret

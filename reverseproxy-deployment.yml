@@ -5,7 +5,7 @@ metadata:
   labels:
     app: reverseproxy
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: reverseproxy
@@ -16,11 +16,13 @@ spec:
     spec:
       containers:
       - name: reverseproxy-container
-        image: faithwenyi/reverseproxy #<ECR_REPOSITORY>
+        image: faithwenyi/reverseproxy:v10 #<ECR_REPOSITORY>
         ports:
-        - containerPort: 80
+        - containerPort: 8080
         envFrom:
         - configMapRef:
             name: u-env-configmap
         - secretRef: 
             name: u-env-secret
+        - secretRef:
+            name: u-aws-secret
